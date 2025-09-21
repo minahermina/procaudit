@@ -1,0 +1,6 @@
+src/arena.c
+src/string.c
+src/arena.h
+src/string.h
+src/*.o
+procaudit
