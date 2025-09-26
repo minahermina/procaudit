@@ -43,22 +43,22 @@ deps:
 
 # Main executable (procaudit)
 $(TARGET): $(PROCAUDIT_OBJ) $(ARENA_OBJ) $(STRING_OBJ)
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(PROCAUDIT_OBJ) $(ARENA_OBJ) $(STRING_OBJ) $(LDFLAGS) -o $(TARGET) $(LDFLAGS)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(PROCAUDIT_OBJ) $(ARENA_OBJ) $(STRING_OBJ) -o $(TARGET) $(LDFLAGS)
 	@echo "==> Build complete: $(TARGET)"
 
 # Object files
 $(PROCAUDIT_OBJ): $(PROCAUDIT_SRC) $(HEADERS)
 	@echo "==> Compiling: $(PROCAUDIT_SRC)"
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $(PROCAUDIT_SRC) $(LDFLAGS) -o $(PROCAUDIT_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $(PROCAUDIT_SRC) -o $(PROCAUDIT_OBJ)
 
 $(STRING_OBJ): $(STRING_SRC) $(HEADERS)
 	@echo "==> Compiling: $(STRING_SRC)"
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $(STRING_SRC) $(LDFLAGS) -o $(STRING_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $(STRING_SRC) -o $(STRING_OBJ)
 
 # Arena must be compiled before string (dependency)
 $(ARENA_OBJ): $(ARENA_SRC) $(ARENA_H)
 	@echo "==> Compiling: $(ARENA_SRC)"
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $(ARENA_SRC) $(LDFLAGS) -o $(ARENA_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $(ARENA_SRC) -o $(ARENA_OBJ)
 
 # Fetch dependencies
 fetch-only:
